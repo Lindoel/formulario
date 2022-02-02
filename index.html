@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <input type="text" name="nome" id="nome" placeholder="Nome Completo">
+        <input type="email" name="email" id="email" placeholder="E-mail">
+        <input type="number" name="tel" id="tel" placeholder="Telefone">
+        <input type="number" name="cep" id="cep" placeholder="Cep">
+        <input type="text" name="rua" id="rua" placeholder="Nome da rua">
+        <input type="number" name="numero_casa" id="numero_casa" placeholder="Numero da casa">
+        <div id="complemento">
+            <input class="botao-c" onclick="comple()" type="button" value="Complemento">
+            <textarea name="complemento" id="texto_complemento" cols="20" rows="5"></textarea>
+        <div class="cadastrar">
+        </div>
+        <input type="text" name="bairro" id="bairro" placeholder="Nome do bairro">
+        <input type="text" name="cidade" id="cidade" placeholder="Cidade">
+        <input type="text" name="estado" id="estado" placeholder="Estado">
+            <input class="botao" onclick="cadastrar()" type="button" value="Cadastrar">
+        </div>
+    </form>
+
+    <section id="table-c">
+        <table id="table">
+            <thead>
+                <td>Nome</td>
+                <td>Email</td>
+                <td>Telefone</td>
+                <td>CEP</td>
+                <td>Rua</td>
+                <td>N° casa</td>
+                <td>Complemento</td>
+                <td>Bairro</td>
+                <td>Cidade</td>
+                <td>Estado</td>
+                <td id="delete">Ação</td>
+            </thead>
+        </table>
+        <input onclick="voltar()" class="botao" type="button" value="Voltar">
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

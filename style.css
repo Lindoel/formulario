@@ -1,0 +1,73 @@
+form {
+    background-color: rgb(212, 212, 255);
+    max-width: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input {
+    flex-wrap: wrap;
+    margin: 8px;
+    outline: none;
+    border: solid 1px;
+    border-radius: 0px;
+}
+
+.botao {
+    border: none;
+    padding: 7px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px;
+}
+.botao:hover {
+    font-weight: bold;
+}
+
+.cadastrar {
+    margin: auto;
+}
+
+#table-c {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+table, thead, tbody, td {
+    border: solid 1px;
+    border-collapse: collapse;
+    padding: 5px;
+    background-color: #bbbbff;
+}
+
+.botao-c {
+    border: none;
+    padding: 7px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px;
+}
+
+.botao-c:hover {
+    font-weight: bold;
+}
+
+textarea {
+    background-color: #4a4a54;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 3px;
+    border: solid 1px blue;
+    display: none;
+}
