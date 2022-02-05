@@ -8,42 +8,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
-        <input type="text" name="nome" id="nome" placeholder="Nome Completo">
-        <input type="email" name="email" id="email" placeholder="E-mail">
-        <input type="number" name="tel" id="tel" placeholder="Telefone">
-        <input type="number" name="cep" id="cep" placeholder="Cep">
-        <input type="text" name="rua" id="rua" placeholder="Nome da rua">
-        <input type="number" name="numero_casa" id="numero_casa" placeholder="Numero da casa">
-        <div id="complemento">
-            <input class="botao-c" onclick="comple()" type="button" value="Complemento">
-            <textarea name="complemento" id="texto_complemento" cols="20" rows="5"></textarea>
-        <div class="cadastrar">
-        </div>
-        <input type="text" name="bairro" id="bairro" placeholder="Nome do bairro">
-        <input type="text" name="cidade" id="cidade" placeholder="Cidade">
-        <input type="text" name="estado" id="estado" placeholder="Estado">
-            <input class="botao" onclick="cadastrar()" type="button" value="Cadastrar">
+    <form id="formulario">
+        <section id="caixa_de_dados">
+            <input tabindex="1" class="dados" type="text" name="nome" id="nome" placeholder="Nome Completo">
+            <input class="dados" type="email" name="email" id="email" placeholder="E-mail">
+            <input class="dados" type="number" name="tel" id="tel" placeholder="Telefone">
+            <input class="dados" type="number" name="cep" id="cep" placeholder="Cep">
+            <input class="dados" type="text" name="rua" id="rua" placeholder="Nome da rua">
+            <input class="dados" type="number" name="numero_casa" id="numero_casa" placeholder="Numero da casa">
+            
+            <input class="dados" type="text" name="bairro" id="bairro" placeholder="Nome do bairro">
+            <input class="dados" type="text" name="cidade" id="cidade" placeholder="Cidade">
+            <input class="dados" type="text" name="estado" id="estado" placeholder="Estado">
+        </section>
+        <hr>
+        <div id="caixa_botao">
+            <input class="botao" onclick="pessoa.cadastrar()" type="button" value="Cadastrar">
         </div>
     </form>
 
     <section id="table-c">
         <table id="table">
             <thead>
+                <td>Nº</td>
                 <td>Nome</td>
                 <td>Email</td>
                 <td>Telefone</td>
                 <td>CEP</td>
                 <td>Rua</td>
                 <td>N° casa</td>
-                <td>Complemento</td>
                 <td>Bairro</td>
                 <td>Cidade</td>
                 <td>Estado</td>
                 <td id="delete">Ação</td>
             </thead>
+            <tbody id="tabelacorpo">
+
+            </tbody>
         </table>
-        <input onclick="voltar()" class="botao" type="button" value="Voltar">
+        <input onclick="pessoa.voltar()" class="botao" type="button" value="Voltar">
     </section>
     <script src="script.js"></script>
 </body>

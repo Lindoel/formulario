@@ -1,88 +1,162 @@
-let botao_c = document.querySelector('.botao-c')
-let complemento1 = document.querySelector('#texto_complemento')
+class Pessoa {
+    constructor() {
+        this.Pessoas = []
+        this.id = 1
+    }
 
-let Pessoas = []
-let tabela_dados = document.querySelector('#table-c')
-let form = document.querySelector('form')
+    cadastrar() {
+        let pessoa = this.nova_pessoa()
 
-let nome = document.querySelector('#nome')
-let email = document.querySelector('#email')
-let tel = document.querySelector('#tel')
-let cep = document.querySelector('#cep')
-let rua = document.querySelector('#rua')
-let numero_casa = document.querySelector('#numero_casa')
-let bairro = document.querySelector('#bairro')
-let cidade = document.querySelector('#cidade')
-let estado = document.querySelector('#estado')
+        if (this.validaCampos(pessoa)) {
+            document.querySelector('#table-c').style.display = 'block'
+            document.querySelector('#formulario').style.display = 'none'
+            this.adicionar(pessoa)
+        }
+        
+        this.adicionar_tabela()
+    }
 
-let acao = ''
-function cadastrar() {
-    if (nome.value.length == 0 || email.value.length == 0 || tel.value.length == 0 || cep.value.length == 0 || rua.value.length == 0 || numero_casa.value.length == 0 || bairro.value.length == 0 || cidade.value.length == 0 || estado.value.length == 0 ) {
-        alert('Por favor, preencha todos os dados')
-    } else {
-        class Pessoa {
-            constructor(nome, email, tel, cep, rua, numero_casa, complemento, bairro, cidade, estado, acao) {
-                this.nome = nome
-                this.email = email
-                this.tel = tel
-                this.cep = cep
-                this.rua = rua
-                this.numero_casa = numero_casa
-                this.complemento1 = complemento
-                this.bairro = bairro
-                this.cidade = cidade
-                this.estado = estado
-                this.acao = acao
+    nova_pessoa() {
+        let pessoa = {}
+
+        pessoa.id = this.id
+        pessoa.nome = document.querySelector('#nome').value
+        pessoa.email = document.querySelector('#email').value
+        pessoa.telefone = document.querySelector('#tel').value
+        pessoa.cep = document.querySelector('#cep').value
+        pessoa.rua = document.querySelector('#rua').value
+        pessoa.numero_casa = document.querySelector('#numero_casa').value
+        pessoa.bairro = document.querySelector('#bairro').value
+        pessoa.cidade = document.querySelector('#cidade').value
+        pessoa.estado = document.querySelector('#estado').value
+        
+        return pessoa
+    }
+
+    adicionar(pessoa) {
+        this.Pessoas.push(pessoa)
+        this.id ++
+
+        console.log(this.Pessoas)
+    }
+
+    validaCampos(pessoa) {
+        let msg = ''
+
+        if (pessoa.nome == '') {
+            msg += 'Informe o nome completo da pessoa \n'
+        }
+
+        if (pessoa.email == '') {
+            msg += 'Informe o E-mail \n'
+        }
+
+        if (pessoa.telefone == '') {
+            msg += 'Informe o número de telefone \n'
+        }
+
+        if (pessoa.cep == '') {
+            msg += 'Informe o CEP \n'
+        }
+
+        if (pessoa.rua == '') {
+            msg += 'Informe o nome da rua \n'
+        }
+
+        if (pessoa.numero_casa == '') {
+            msg += 'Informe o numero da casa \n'
+        }
+
+        if (pessoa.bairro == '') {
+            msg += 'Informe o nome do bairro \n'
+        }
+
+        if (pessoa.cidade == '') {
+            msg += 'Informe o nome da cidade \n'
+        }
+
+        if (pessoa.estado == '') {
+            msg += 'Informe o nome do estado'
+        }
+        if (msg != '') {
+            alert(msg)
+            return false
+        } else {
+            return true
+        }
+    }
+
+    adicionar_tabela() {
+        let tbody = document.querySelector('#tabelacorpo')
+        tbody.innerText = ''
+
+        for (let c = 0; c < this.Pessoas.length; c++) {
+            let tr = tbody.insertRow()
+
+            let td_id = tr.insertCell()
+            let td_nome = tr.insertCell()
+            let td_email = tr.insertCell()
+            let td_telefone = tr.insertCell()
+            let td_cep = tr.insertCell()
+            let td_rua = tr.insertCell()
+            let td_numero_casa = tr.insertCell()
+            let td_bairro = tr.insertCell()
+            let td_cidade = tr.insertCell()
+            let td_estado = tr.insertCell()
+            let td_botao_deletar = tr.insertCell()
+
+            td_id.innerText = this.Pessoas[c].id
+            td_nome.innerText = this.Pessoas[c].nome
+            td_email.innerText = this.Pessoas[c].email
+            td_telefone.innerText = this.Pessoas[c].telefone
+            td_cep.innerText = this.Pessoas[c].cep
+            td_rua.innerText = this.Pessoas[c].rua
+            td_numero_casa.innerText = this.Pessoas[c].numero_casa
+            td_bairro.innerText = this.Pessoas[c].bairro
+            td_cidade.innerText = this.Pessoas[c].cidade
+            td_estado.innerText = this.Pessoas[c].estado
+
+
+            let img_deletar = document.createElement('img')
+            img_deletar.setAttribute('class', 'lixeira')
+            img_deletar.setAttribute('onclick', 'pessoa.deletar('+ this.Pessoas[c].id +')')
+            img_deletar.src = 'icons/delete.svg'
+
+            td_botao_deletar.appendChild(img_deletar)
+        }
+    }
+
+    deletar(id) {
+        let tbody = document.querySelector('#tabelacorpo')
+        
+        let confirmar = confirm('Quer mesmo excluir este cadastro permanentemente?')
+
+        if (confirmar == true) {
+            for (let c = 0; c < this.Pessoas.length; c++) {
+                if (this.Pessoas[c].id == id) {
+                    this.Pessoas.splice(c, 1)
+                    console.log(this.Pessoas)
+                    tbody.deleteRow(c)
+                }
             }
         }
-        
-        if (complemento1.style.display = 'block') {
-            var pessoa = new Pessoa(nome.value, email.value, tel.value, cep.value, rua.value, numero_casa.value, complemento1.value, bairro.value, cidade.value, estado.value, acao)
-        } else {
-            var pessoa = new Pessoa(nome.value, email.value, tel.value, cep.value, rua.value, numero_casa.value, bairro.value, cidade.value, estado.value, acao)
-        }
-        
-        Pessoas.push(pessoa)
-        
-        let tbody = document.createElement('tbody')
-        
-        for (c in pessoa) {
-            let table = document.querySelector('#table')
-
-            let tr = document.createElement('td')
-            
-            tr.innerText = pessoa[c]
-            
-            tbody.appendChild(tr)
-            
-            table.appendChild(tbody)
-            
-        }
-        tabela_dados.style.display = 'block'
-        form.style.display = 'none'
     }
-    
+
+    voltar() {
+        document.querySelector('#table-c').style.display = 'none'
+        document.querySelector('#formulario').style.display = 'block'
+
+        document.querySelector('#nome').value = ''
+        document.querySelector('#email').value = ''
+        document.querySelector('#tel').value = ''
+        document.querySelector('#cep').value = ''
+        document.querySelector('#rua').value = ''
+        document.querySelector('#numero_casa').value = ''
+        document.querySelector('#bairro').value = ''
+        document.querySelector('#cidade').value = ''
+        document.querySelector('#estado').value = ''
+
+    }
 }
 
-function comple() {
-    complemento1.style.display = 'block'
-    botao_c.style.display = 'none'
-}
-
-function voltar() {
-    tabela_dados.style.display = 'none'
-    form.style.display = 'block'
-    nome.value = ''
-    email.value = ''
-    tel.value = ''
-    cep.value = ''
-    rua.value = ''
-    numero_casa.value = ''
-    bairro.value = ''
-    cidade.value = ''
-    estado.value = ''
-
-    complemento1.style.display = 'none'
-    complemento1.value = ''
-    botao_c.style.display = 'block'
-}
+let pessoa = new Pessoa()
