@@ -1,5 +1,6 @@
 body {
-    background: linear-gradient(to right, #633363, #000000)
+    background: linear-gradient(to right, #633363, #000000);
+    font-family: 'Courier New', Courier, monospace;
 }
 #formulario {
     background-color: #313131;
@@ -115,4 +116,26 @@ table, td {
 
 #texto-complemento {
     display: none;
+}
+
+.menu {
+    background-color: violet;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: all;
+    transition-duration: 800ms;
+    
+    position: fixed;
+    top: 12%;
+    right: 60%;
+    transform: (translate(-12%, -60%));
+}
+
+.menu:hover {
+    padding: 8px;
+    transition: all;
+    transition-duration: 800ms;
 }

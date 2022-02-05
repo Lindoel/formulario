@@ -149,6 +149,7 @@ class Pessoa {
     voltar() {
         document.querySelector('#table-c').style.display = 'none'
         document.querySelector('#formulario').style.display = 'block'
+        document.querySelector('.menu').style.display = 'block'
 
         document.querySelector('#nome').value = ''
         document.querySelector('#email').value = ''
@@ -165,6 +166,13 @@ class Pessoa {
     complemento() {
         document.querySelector('#botao-complemento').style.display = 'none'
         document.querySelector('#texto-complemento').style.display = 'block'
+    }
+
+    menu() {
+        document.querySelector('#table-c').style.display = 'block'
+        document.querySelector('#formulario').style.display = 'none'
+        document.querySelector('.menu').style.display = 'none'
+
     }
 }
 
