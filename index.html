@@ -21,8 +21,12 @@
             <input class="dados" type="text" name="cidade" id="cidade" placeholder="Cidade">
             <input class="dados" type="text" name="estado" id="estado" placeholder="Estado">
         </section>
+        <div class="caixa_botao">
+            <input class="botao" id="botao-complemento" type="button" value="Complemento" onclick="pessoa.complemento()">
+            <textarea name="complemento" id="texto-complemento" cols="30" rows="10" placeholder="Complemento opcional"></textarea>
+        </div>
         <hr>
-        <div id="caixa_botao">
+        <div class="caixa_botao">
             <input class="botao" onclick="pessoa.cadastrar()" type="button" value="Cadastrar">
         </div>
     </form>
