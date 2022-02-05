@@ -29,6 +29,8 @@ class Pessoa {
         pessoa.bairro = document.querySelector('#bairro').value
         pessoa.cidade = document.querySelector('#cidade').value
         pessoa.estado = document.querySelector('#estado').value
+
+        pessoa.complemento = document.querySelector('#texto-complemento').value
         
         return pessoa
     }
@@ -103,6 +105,7 @@ class Pessoa {
             let td_bairro = tr.insertCell()
             let td_cidade = tr.insertCell()
             let td_estado = tr.insertCell()
+            let td_complemento = tr.insertCell()
             let td_botao_deletar = tr.insertCell()
 
             td_id.innerText = this.Pessoas[c].id
@@ -115,6 +118,7 @@ class Pessoa {
             td_bairro.innerText = this.Pessoas[c].bairro
             td_cidade.innerText = this.Pessoas[c].cidade
             td_estado.innerText = this.Pessoas[c].estado
+            td_complemento.innerText = this.Pessoas[c].complemento
 
 
             let img_deletar = document.createElement('img')
@@ -156,6 +160,11 @@ class Pessoa {
         document.querySelector('#cidade').value = ''
         document.querySelector('#estado').value = ''
 
+    }
+
+    complemento() {
+        document.querySelector('#botao-complemento').style.display = 'none'
+        document.querySelector('#texto-complemento').style.display = 'block'
     }
 }
 
