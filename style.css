@@ -80,7 +80,6 @@ hr:hover {
 
 #table-c {
     background-color: #313131;
-    max-width: 800px;
     padding: 10px;
     border-radius: 20px 0px;
     box-shadow: 1px 1px 10px;
@@ -93,6 +92,27 @@ hr:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media (max-width: 480px) {
+    #table-c {
+        width: 280px;
+    }
+
+    .menu {
+        background-color: violet;
+        padding: 5px;
+        border-radius: 50%;
+        box-shadow: 1px 1px 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: all;
+        transition-duration: 800ms;
+        
+        position: fixed;
+        top: 12%;
+        right: 86;
+    }
 }
 
 table, td {
@@ -129,9 +149,8 @@ table, td {
     transition-duration: 800ms;
     
     position: fixed;
-    top: 12%;
-    right: 60%;
-    transform: (translate(-12%, -60%));
+    top: 90%;
+    right: 8%;
 }
 
 .menu:hover {

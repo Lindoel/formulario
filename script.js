@@ -161,6 +161,7 @@ class Pessoa {
         document.querySelector('#cidade').value = ''
         document.querySelector('#estado').value = ''
 
+        document.querySelector('#nome').focus()
     }
 
     complemento() {

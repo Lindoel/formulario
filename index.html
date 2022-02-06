@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <img class="menu" src="icons/menu.svg" onclick="pessoa.menu()" alt="menu">
-    </div>
     <form id="formulario">
         <section id="caixa_de_dados">
             <input tabindex="1" class="dados" type="text" name="nome" id="nome" placeholder="Nome Completo">
@@ -31,6 +28,9 @@
         <hr>
         <div class="caixa_botao">
             <input class="botao" onclick="pessoa.cadastrar()" type="button" value="Cadastrar">
+        </div>
+        <div>
+            <img class="menu" src="icons/menu.svg" onclick="pessoa.menu()" alt="menu">
         </div>
     </form>
 
